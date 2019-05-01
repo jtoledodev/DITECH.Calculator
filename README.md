@@ -20,4 +20,4 @@ Seleccionar proyectos de inicio mutiples
 
 para los demas dejar ninguna
 
-* finalmente ejecutar la solución
+* finalmente ejecutar la soluciÃ³n
