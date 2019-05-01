@@ -40,7 +40,11 @@ namespace Calculator.Api.Core.Services
 
         public async Task<MultiplicacionResponse> Multiplicar(MultiplicacionRequest r)
         {
-            throw new NotImplementedException();
+            var result = await Task.Run(() => r.Factores.Aggregate((x, y) => x * y));
+
+            await GuardarDiario(r, result.ToString());
+
+            return new MultiplicacionResponse { Producto = result };
         }
 
         public async Task<DivisionResponse> Dividir(DivisionRequest r)
