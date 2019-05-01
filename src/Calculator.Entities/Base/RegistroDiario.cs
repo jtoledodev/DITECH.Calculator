@@ -6,6 +6,8 @@ namespace Calculator.Entities.Base
 {
     public class RegistroDiario
     {
+        public int Id { get; set; }
+
         public string IdSeguimiento { get; set; }
 
         public string Operacion { get; set; }

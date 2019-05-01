@@ -19,15 +19,27 @@ namespace Calculator.CConsole
 
             var apiConsumerService = _serviceProvider.GetService<IApiConsumerService>();
 
+            //Valores estaticos
+            const string idSeguimiento = "operaciones123";
+
             //Llamado al API para realizar una SUMA
             var sumaRequest = new SumaRequest
             {
                 Sumandos = new List<double>() {4, 5, 6, 10},
-                IdSeguimiento = "operaciones123"
+                IdSeguimiento = idSeguimiento
             };
 
             var sumaResponse = await apiConsumerService.Sumar(sumaRequest);
             Console.WriteLine(sumaResponse);
+
+            //Llamado al API para consultar el diario
+            var consultaDiarioRequest = new ConsultaDiarioRequest
+            {
+                IdSeguimiento = idSeguimiento
+            };
+
+            var consultaDiarioResponse = await apiConsumerService.CosultarDiario(consultaDiarioRequest);
+            Console.WriteLine(consultaDiarioResponse);
 
             Console.WriteLine("-----------------------------------------------------------------");
             Console.WriteLine("Aplicación Finalizada");

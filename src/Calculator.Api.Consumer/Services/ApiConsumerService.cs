@@ -57,14 +57,15 @@ namespace Calculator.Api.Consumer.Services
             throw new NotImplementedException();
         }
 
-        public async Task GuardarRegistroDiario(RegistroDiario r)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<ConsultaDiarioResponse> CosultarDiario(ConsultaDiarioRequest r)
         {
-            throw new NotImplementedException();
+            var client = new RestClient(_apiUrl);
+
+            var request = new RestRequest($"{JournalApiResource}/query", Method.POST, DataFormat.Json);
+
+            request.AddParameter("application/json; charset=utf-8", JsonConvert.SerializeObject(r), ParameterType.RequestBody);
+
+            return await client.PostAsync<ConsultaDiarioResponse>(request);
         }
     }
 }
