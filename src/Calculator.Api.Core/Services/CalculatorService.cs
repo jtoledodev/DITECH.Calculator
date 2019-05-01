@@ -15,11 +15,19 @@ namespace Calculator.Api.Core.Services
     {
         private readonly IJournalService _journalService;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="journalService"></param>
         public CalculatorService(IJournalService journalService)
         {
             _journalService = journalService;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public async Task<SumaResponse> Sumar(SumaRequest r)
         {
             var result = await Task.Run(() => r.Sumandos.Sum());
@@ -28,7 +36,11 @@ namespace Calculator.Api.Core.Services
 
             return new SumaResponse {Suma = result};
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public async Task<RestaResponse> Restar(RestaRequest r)
         {
             var result = await Task.Run(() => r.Minuendo - r.Sustraendo);
@@ -37,7 +49,11 @@ namespace Calculator.Api.Core.Services
 
             return new RestaResponse { Diferencia = result };
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public async Task<MultiplicacionResponse> Multiplicar(MultiplicacionRequest r)
         {
             var result = await Task.Run(() => r.Factores.Aggregate((x, y) => x * y));
@@ -46,7 +62,11 @@ namespace Calculator.Api.Core.Services
 
             return new MultiplicacionResponse { Producto = result };
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public async Task<DivisionResponse> Dividir(DivisionRequest r)
         {
             var result = await Task.Run(() => new KeyValuePair<double, double>(r.Dividendo / r.Divisor, r.Dividendo % r.Divisor));
@@ -55,7 +75,11 @@ namespace Calculator.Api.Core.Services
 
             return new DivisionResponse { Cociente = result.Key, Resto = result.Value };
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public async Task<RaizCuadradaResponse> CalcularRaizCuadrada(RaizCuadradaRequest r)
         {
             var result = await Task.Run(() => Math.Sqrt(r.Numero));
@@ -64,7 +88,12 @@ namespace Calculator.Api.Core.Services
 
             return new RaizCuadradaResponse {Cuadrado = result};
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
         private async Task GuardarDiario(Request r, string result)
         {
             if (!string.IsNullOrEmpty(r.IdSeguimiento))

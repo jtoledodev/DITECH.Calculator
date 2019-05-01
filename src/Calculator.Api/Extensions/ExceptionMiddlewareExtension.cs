@@ -13,6 +13,10 @@ namespace Calculator.Api.Extensions
 {
     public static class ExceptionMiddlewareExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="app"></param>
         public static void ConfigureExceptionHandler(this IApplicationBuilder app)
         {
             app.UseExceptionHandler(appError =>

@@ -17,14 +17,21 @@ namespace Calculator.Api.Core.Services
         private readonly IConfiguration _config;
         private readonly string _dbFileName;
         private readonly string _diarioCollectionName;
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="config"></param>
         public DataAccessService(IConfiguration config)
         {
             _config = config;
             _dbFileName = _config.GetSection("AppSettings").GetSection("DbFileName").Value;
             _diarioCollectionName = _config.GetSection("AppSettings").GetSection("DiarioCollectionName").Value;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public async Task GuardarRegistroDiario(RegistroDiario r)
         {
             await Task.Run(() => {
@@ -41,7 +48,11 @@ namespace Calculator.Api.Core.Services
                 }
             });
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public async Task<ConsultaDiarioResponse> CosultarDiario(ConsultaDiarioRequest r)
         {
             var data = await Task.Run(() => 

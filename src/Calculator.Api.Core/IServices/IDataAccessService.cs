@@ -10,8 +10,17 @@ namespace Calculator.Api.Core.IServices
 {
     public interface IDataAccessService
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         Task GuardarRegistroDiario(RegistroDiario r);
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         Task<ConsultaDiarioResponse> CosultarDiario(ConsultaDiarioRequest r);
     }
 }

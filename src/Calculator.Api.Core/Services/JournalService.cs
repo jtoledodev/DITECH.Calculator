@@ -12,17 +12,28 @@ namespace Calculator.Api.Core.Services
     public class JournalService : IJournalService
     {
         private readonly IDataAccessService _dataAccessService;
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataAccessService"></param>
         public JournalService(IDataAccessService dataAccessService)
         {
             _dataAccessService = dataAccessService;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public async Task GuardarRegistroDiario(RegistroDiario r)
         {
             await _dataAccessService.GuardarRegistroDiario(r);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         public async Task<ConsultaDiarioResponse> CosultarDiario(ConsultaDiarioRequest r)
         {
             return await _dataAccessService.CosultarDiario(r);

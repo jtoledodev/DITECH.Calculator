@@ -15,7 +15,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using Serilog;
 
 namespace Calculator.Api
 {
@@ -23,10 +22,6 @@ namespace Calculator.Api
     {
         public Startup(IConfiguration configuration)
         {
-            var logConfiguration = new LoggerConfiguration().ReadFrom.Configuration(configuration);
-
-            Log.Logger = logConfiguration.CreateLogger();
-
             Configuration = configuration;
         }
 
@@ -39,17 +34,15 @@ namespace Calculator.Api
             services.AddTransient<IJournalService, JournalService>();
             services.AddTransient<ICalculatorService, CalculatorService>();
 
-            services.AddMvc();
-
-            services.Configure<ApiBehaviorOptions>(a =>
+            services.Configure<ApiBehaviorOptions>(a => 
             {
-                a.InvalidModelStateResponseFactory = actionContext =>
+                a.InvalidModelStateResponseFactory = context =>
                 {
                     var problemDetails = new HttpError
                     {
                         ErrorCode = HttpStatusCode.BadRequest.ToString(),
                         ErrorStatus = (int)HttpStatusCode.BadRequest,
-                        ErrorMessage = $"The inputs supplied to the API are invalid. Details: {JsonConvert.SerializeObject(actionContext.ModelState)}"
+                        ErrorMessage = $"The inputs supplied to the API are invalid. Details: {JsonConvert.SerializeObject(context.ModelState)}"
                     };
 
                     return new BadRequestObjectResult(problemDetails)
@@ -58,6 +51,8 @@ namespace Calculator.Api
                     };
                 };
             });
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

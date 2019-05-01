@@ -12,6 +12,9 @@ using Serilog;
 
 namespace Calculator.Api.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
@@ -19,19 +22,29 @@ namespace Calculator.Api.Controllers
     {
         private readonly ICalculatorService _calculatorService;
         private const string IdHeader = "X-Evi-Tracking-Id";
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="calculatorService"></param>
         public CalculatorController(ICalculatorService calculatorService)
         {
             _calculatorService = calculatorService;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<string>> Get()
         {
             return Ok(await Task.FromResult("Calculator API Status Ok!"));
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         [HttpPost("Add")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -45,7 +58,11 @@ namespace Calculator.Api.Controllers
 
             return Ok(response);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         [HttpPost("Sub")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -59,7 +76,11 @@ namespace Calculator.Api.Controllers
 
             return Ok(response);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         [HttpPost("Mult")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -73,7 +94,11 @@ namespace Calculator.Api.Controllers
 
             return Ok(response);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         [HttpPost("Div")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -87,7 +112,11 @@ namespace Calculator.Api.Controllers
 
             return Ok(response);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns></returns>
         [HttpPost("Sqrt")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
