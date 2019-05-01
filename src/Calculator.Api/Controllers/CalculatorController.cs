@@ -8,6 +8,7 @@ using Calculator.Entities.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
+using Serilog;
 
 namespace Calculator.Api.Controllers
 {
@@ -38,7 +39,11 @@ namespace Calculator.Api.Controllers
         {
             r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
-            return Ok(await _calculatorService.Sumar(r));
+            var response = await _calculatorService.Sumar(r);
+
+            Log.Information(r.ToRegistroDiario(response.Suma.ToString()).ToString());
+
+            return Ok(response);
         }
 
         [HttpPost("Sub")]
@@ -48,7 +53,11 @@ namespace Calculator.Api.Controllers
         {
             r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
-            return Ok(await _calculatorService.Restar(r));
+            var response = await _calculatorService.Restar(r);
+
+            Log.Information(r.ToRegistroDiario(response.Diferencia.ToString()).ToString());
+
+            return Ok(response);
         }
 
         [HttpPost("Mult")]
@@ -58,7 +67,11 @@ namespace Calculator.Api.Controllers
         {
             r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
-            return Ok(await _calculatorService.Multiplicar(r));
+            var response = await _calculatorService.Multiplicar(r);
+
+            Log.Information(r.ToRegistroDiario(response.Producto.ToString()).ToString());
+
+            return Ok(response);
         }
 
         [HttpPost("Div")]
@@ -68,7 +81,11 @@ namespace Calculator.Api.Controllers
         {
             r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
-            return Ok(await _calculatorService.Dividir(r));
+            var response = await _calculatorService.Dividir(r);
+
+            Log.Information(r.ToRegistroDiario($"{response.Cociente},{response.Resto}").ToString());
+
+            return Ok(response);
         }
 
         [HttpPost("Sqrt")]
@@ -78,7 +95,11 @@ namespace Calculator.Api.Controllers
         {
             r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
-            return Ok(await _calculatorService.CalcularRaizCuadrada(r));
+            var response = await _calculatorService.CalcularRaizCuadrada(r);
+
+            Log.Information(r.ToRegistroDiario(response.Cuadrado.ToString()).ToString());
+
+            return Ok(response);
         }
     }
 }

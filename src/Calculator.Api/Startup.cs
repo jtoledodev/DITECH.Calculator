@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using Serilog;
 
 namespace Calculator.Api
 {
@@ -22,6 +23,10 @@ namespace Calculator.Api
     {
         public Startup(IConfiguration configuration)
         {
+            var logConfiguration = new LoggerConfiguration().ReadFrom.Configuration(configuration);
+
+            Log.Logger = logConfiguration.CreateLogger();
+
             Configuration = configuration;
         }
 
