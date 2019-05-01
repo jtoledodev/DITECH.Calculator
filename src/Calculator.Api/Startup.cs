@@ -34,15 +34,17 @@ namespace Calculator.Api
             services.AddTransient<IJournalService, JournalService>();
             services.AddTransient<ICalculatorService, CalculatorService>();
 
-            services.Configure<ApiBehaviorOptions>(a => 
+            services.AddMvc();
+
+            services.Configure<ApiBehaviorOptions>(a =>
             {
-                a.InvalidModelStateResponseFactory = context =>
+                a.InvalidModelStateResponseFactory = actionContext =>
                 {
                     var problemDetails = new HttpError
                     {
                         ErrorCode = HttpStatusCode.BadRequest.ToString(),
                         ErrorStatus = (int)HttpStatusCode.BadRequest,
-                        ErrorMessage = $"The inputs supplied to the API are invalid. Details: {JsonConvert.SerializeObject(context.ModelState)}"
+                        ErrorMessage = $"The inputs supplied to the API are invalid. Details: {JsonConvert.SerializeObject(actionContext.ModelState)}"
                     };
 
                     return new BadRequestObjectResult(problemDetails)
@@ -51,8 +53,6 @@ namespace Calculator.Api
                     };
                 };
             });
-
-            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -35,8 +35,6 @@ namespace Calculator.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<ConsultaDiarioResponse>> ConsultarDiarioAsync([FromBody] ConsultaDiarioRequest r)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             return Ok(await _journalService.CosultarDiario(r));
         }
     }

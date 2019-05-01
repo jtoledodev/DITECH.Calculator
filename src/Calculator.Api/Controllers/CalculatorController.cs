@@ -36,8 +36,6 @@ namespace Calculator.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<SumaResponse>> SumarAsync([FromBody] SumaRequest r)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
             return Ok(await _calculatorService.Sumar(r));
@@ -48,8 +46,6 @@ namespace Calculator.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<RestaResponse>> RestarAsync([FromBody] RestaRequest r)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
             return Ok(await _calculatorService.Restar(r));
@@ -60,8 +56,6 @@ namespace Calculator.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<MultiplicacionResponse>> MultiplicarAsync([FromBody] MultiplicacionRequest r)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
             return Ok(await _calculatorService.Multiplicar(r));
@@ -72,8 +66,6 @@ namespace Calculator.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<DivisionResponse>> MultiplicarAsync([FromBody] DivisionRequest r)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
             return Ok(await _calculatorService.Dividir(r));
@@ -84,8 +76,6 @@ namespace Calculator.Api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<RaizCuadradaResponse>> CalcularRaizCuadradaAsync([FromBody] RaizCuadradaRequest r)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-
             r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
             return Ok(await _calculatorService.CalcularRaizCuadrada(r));
