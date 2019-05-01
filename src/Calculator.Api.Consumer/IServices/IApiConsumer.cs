@@ -20,8 +20,6 @@ namespace Calculator.Api.Consumer.IServices
 
         Task<RaizCuadradaResponse> CalcularRaizCuadrada(RaizCuadradaRequest r);
 
-        Task GuardarRegistroDiario(RegistroDiario r);
-
         Task<ConsultaDiarioResponse> CosultarDiario(ConsultaDiarioRequest r);
     }
 }

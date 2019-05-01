@@ -10,7 +10,7 @@ namespace Calculator.CConsole
 {
     class Program
     {
-        private const string ApiUrl = "http://localhost:49488/api/";
+        private const string ApiUrl = "http://localhost:28810/api/";
         private static IServiceProvider _serviceProvider;
 
         static async Task Main(string[] args)
@@ -19,11 +19,14 @@ namespace Calculator.CConsole
 
             var apiConsumerService = _serviceProvider.GetService<IApiConsumerService>();
 
+            //Valores estaticos
+            const string idSeguimiento = "operaciones123";
+
             //Llamado al API para realizar una SUMA
             var sumaRequest = new SumaRequest
             {
                 Sumandos = new List<double>() {4, 5, 6, 10},
-                IdSeguimiento = "operaciones123"
+                IdSeguimiento = idSeguimiento
             };
 
             var sumaResponse = await apiConsumerService.Sumar(sumaRequest);
@@ -70,6 +73,15 @@ namespace Calculator.CConsole
 
             var raizResponse = await apiConsumerService.CalcularRaizCuadrada(raizRequest);
             Console.WriteLine(raizRequest);
+
+            //Llamado al API para consultar el diario
+            var consultaDiarioRequest = new ConsultaDiarioRequest
+            {
+                IdSeguimiento = idSeguimiento
+            };
+
+            var consultaDiarioResponse = await apiConsumerService.CosultarDiario(consultaDiarioRequest);
+            Console.WriteLine(consultaDiarioResponse);
 
             Console.WriteLine("-----------------------------------------------------------------");
             Console.WriteLine("Aplicación Finalizada");
