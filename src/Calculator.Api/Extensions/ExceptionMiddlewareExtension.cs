@@ -7,6 +7,7 @@ using Calculator.Entities.Base;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace Calculator.Api.Extensions
 {
@@ -25,12 +26,14 @@ namespace Calculator.Api.Extensions
 
                     if (contextFeature != null)
                     {
-                        await context.Response.WriteAsync(new HttpError()
+                        var error = new HttpError()
                         {
                             ErrorCode = HttpStatusCode.InternalServerError.ToString(),
                             ErrorStatus = context.Response.StatusCode,
                             ErrorMessage = $"Ocurrió un error en la aplicación. Exception: {contextFeature.Error}"
-                        }.ToString());
+                        };
+
+                        await context.Response.WriteAsync(JsonConvert.SerializeObject(error));
                     }
                 });
             });
