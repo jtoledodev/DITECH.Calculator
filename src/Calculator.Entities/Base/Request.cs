@@ -14,7 +14,7 @@ namespace Calculator.Entities.Base
             {
                 IdSeguimiento = IdSeguimiento,
                 FechaHora = DateTime.Now,
-                Operacion = this.GetType().Name,
+                Operacion = this.GetType().Name.Replace("Request", string.Empty),
                 Calculo = $"{this.ToString()} = {resultado}"
             };
 

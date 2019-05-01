@@ -72,7 +72,7 @@ namespace Calculator.CConsole
             };
 
             var raizResponse = await apiConsumerService.CalcularRaizCuadrada(raizRequest);
-            Console.WriteLine(raizRequest);
+            Console.WriteLine(raizResponse);
 
             //Llamado al API para consultar el diario
             var consultaDiarioRequest = new ConsultaDiarioRequest

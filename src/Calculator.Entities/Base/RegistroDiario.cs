@@ -18,7 +18,7 @@ namespace Calculator.Entities.Base
 
         public override string ToString()
         {
-            return $"{nameof(IdSeguimiento)}:{IdSeguimiento}|{nameof(Operacion)}:{Operacion}|{nameof(Calculo)}:{Calculo}|{nameof(FechaHora)}:{FechaHora:d}";
+            return $"{nameof(IdSeguimiento)}:{IdSeguimiento}|{nameof(Operacion)}:{Operacion}|{nameof(Calculo)}:{Calculo}|{nameof(FechaHora)}:{FechaHora:s}";
         }
     }
 }
