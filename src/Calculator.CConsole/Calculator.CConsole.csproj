@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Calculator.Services\Calculator.Api.Consumer.csproj" />
+    <ProjectReference Include="..\Calculator.Api.Consumer\Calculator.Api.Consumer.csproj" />
   </ItemGroup>
 
 </Project>

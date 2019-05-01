@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Common", "3-Common", "{76
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Entities", "Calculator.Entities\Calculator.Entities.csproj", "{FA43626B-0BD8-4FAE-96CE-6884E16884A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Api.Consumer", "Calculator.Services\Calculator.Api.Consumer.csproj", "{588D5D41-4B6F-48D6-935C-20E8133AF1D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Api.Consumer", "Calculator.Api.Consumer\Calculator.Api.Consumer.csproj", "{588D5D41-4B6F-48D6-935C-20E8133AF1D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.Api", "Calculator.Api\Calculator.Api.csproj", "{B9533705-C357-4798-AB12-F6F58D058374}"
 EndProject
