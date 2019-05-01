@@ -12,6 +12,6 @@ namespace Calculator.Api.Core.IServices
     {
         Task GuardarRegistroDiario(RegistroDiario r);
 
-        Task<List<RegistroDiario>> CosultarDiario(ConsultaDiarioRequest r);
+        Task<ConsultaDiarioResponse> CosultarDiario(ConsultaDiarioRequest r);
     }
 }

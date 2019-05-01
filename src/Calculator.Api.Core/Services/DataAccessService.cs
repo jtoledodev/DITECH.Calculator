@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Calculator.Api.Core.IServices;
 using Calculator.Entities.Base;
 using Calculator.Entities.Request;
+using Calculator.Entities.Response;
 
 namespace Calculator.Api.Core.Services
 {
@@ -15,7 +16,7 @@ namespace Calculator.Api.Core.Services
             throw new NotImplementedException();
         }
 
-        public async Task<List<RegistroDiario>> CosultarDiario(ConsultaDiarioRequest r)
+        public async Task<ConsultaDiarioResponse> CosultarDiario(ConsultaDiarioRequest r)
         {
             throw new NotImplementedException();
         }
