@@ -10,7 +10,7 @@ namespace Calculator.CConsole
 {
     class Program
     {
-        private const string ApiUrl = "http://localhost:28810/api/";
+        private const string ApiUrl = "http://localhost:49488/api/";
         private static IServiceProvider _serviceProvider;
 
         static async Task Main(string[] args)
@@ -28,6 +28,48 @@ namespace Calculator.CConsole
 
             var sumaResponse = await apiConsumerService.Sumar(sumaRequest);
             Console.WriteLine(sumaResponse);
+
+            //Llamado al API para realizar una resta
+            var restaRequest = new RestaRequest
+            {
+                Minuendo = 10,
+                Sustraendo = 6,
+                IdSeguimiento = "operaciones123"
+            };
+
+            var restaResponse = await apiConsumerService.Restar(restaRequest);
+            Console.WriteLine(restaResponse);
+
+            //Llamado al API para realizar una multiplicacion
+            var multiRequest = new MultiplicacionRequest
+            {
+                Factores = new List<double>() { 4, 5},
+                IdSeguimiento = "operaciones123"
+            };
+            
+            var multiResponse = await apiConsumerService.Multiplicar(multiRequest);
+            Console.WriteLine(multiResponse);
+
+            //Llamado al API para realizar una division
+            var divRequest = new DivisionRequest
+            {
+                Dividendo = 4,
+                Divisor = 20,
+                IdSeguimiento = "operaciones123"
+            };
+            
+            var divResponse = await apiConsumerService.Dividir(divRequest);
+            Console.WriteLine(divResponse);
+
+            //Llamado al API para realizar una raiz cuadrada
+            var raizRequest = new RaizCuadradaRequest
+            {
+                Numero = 9,
+                IdSeguimiento = "operaciones123"
+            };
+
+            var raizResponse = await apiConsumerService.CalcularRaizCuadrada(raizRequest);
+            Console.WriteLine(raizRequest);
 
             Console.WriteLine("-----------------------------------------------------------------");
             Console.WriteLine("Aplicación Finalizada");

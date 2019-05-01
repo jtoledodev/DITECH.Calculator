@@ -39,22 +39,58 @@ namespace Calculator.Api.Consumer.Services
 
         public async Task<RestaResponse> Restar(RestaRequest r)
         {
-            throw new NotImplementedException();
+            var client = new RestClient(_apiUrl);
+
+            var request = new RestRequest($"{CalculatorApiResource}/sub", Method.POST, DataFormat.Json);
+
+            if (!string.IsNullOrEmpty(r.IdSeguimiento))
+                request.AddHeader(IdHeader, r.IdSeguimiento);
+
+            request.AddParameter("application/json; charset=utf-8", JsonConvert.SerializeObject(r), ParameterType.RequestBody);
+
+            return await client.PostAsync<RestaResponse>(request);
         }
 
         public async Task<MultiplicacionResponse> Multiplicar(MultiplicacionRequest r)
         {
-            throw new NotImplementedException();
+            var client = new RestClient(_apiUrl);
+
+            var request = new RestRequest($"{CalculatorApiResource}/Mult", Method.POST, DataFormat.Json);
+
+            if (!string.IsNullOrEmpty(r.IdSeguimiento))
+                request.AddHeader(IdHeader, r.IdSeguimiento);
+
+            request.AddParameter("application/json; charset=utf-8", JsonConvert.SerializeObject(r), ParameterType.RequestBody);
+
+            return await client.PostAsync<MultiplicacionResponse>(request);
         }
 
         public async Task<DivisionResponse> Dividir(DivisionRequest r)
         {
-            throw new NotImplementedException();
+            var client = new RestClient(_apiUrl);
+
+            var request = new RestRequest($"{CalculatorApiResource}/Div", Method.POST, DataFormat.Json);
+
+            if (!string.IsNullOrEmpty(r.IdSeguimiento))
+                request.AddHeader(IdHeader, r.IdSeguimiento);
+
+            request.AddParameter("application/json; charset=utf-8", JsonConvert.SerializeObject(r), ParameterType.RequestBody);
+
+            return await client.PostAsync<DivisionResponse>(request);
         }
 
         public async Task<RaizCuadradaResponse> CalcularRaizCuadrada(RaizCuadradaRequest r)
         {
-            throw new NotImplementedException();
+            var client = new RestClient(_apiUrl);
+
+            var request = new RestRequest($"{CalculatorApiResource}/Sqrt", Method.POST, DataFormat.Json);
+
+            if (!string.IsNullOrEmpty(r.IdSeguimiento))
+                request.AddHeader(IdHeader, r.IdSeguimiento);
+
+            request.AddParameter("application/json; charset=utf-8", JsonConvert.SerializeObject(r), ParameterType.RequestBody);
+
+            return await client.PostAsync<RaizCuadradaResponse>(request);
         }
 
         public async Task GuardarRegistroDiario(RegistroDiario r)
