@@ -9,5 +9,10 @@ namespace Calculator.Entities.Response
         public double Cociente { get; set; }
 
         public double Resto { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(Cociente)}: {Cociente} | {nameof(Resto)}: {Resto}";
+        }
     }
 }

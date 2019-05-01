@@ -13,5 +13,10 @@ namespace Calculator.Entities.Response
         {
             Operaciones = new List<RegistroDiario>();
         }
+
+        public override string ToString()
+        {
+            return string.Join("\r\n", Operaciones);
+        }
     }
 }

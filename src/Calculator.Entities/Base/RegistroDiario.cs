@@ -13,5 +13,10 @@ namespace Calculator.Entities.Base
         public string Calculo { get; set; }
 
         public DateTime FechaHora { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(IdSeguimiento)}:{IdSeguimiento}|{nameof(Operacion)}:{Operacion}|{nameof(Calculo)}:{Calculo}|{nameof(FechaHora)}:{FechaHora:d}";
+        }
     }
 }

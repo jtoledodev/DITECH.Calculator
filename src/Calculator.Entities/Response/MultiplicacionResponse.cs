@@ -7,5 +7,10 @@ namespace Calculator.Entities.Response
     public class MultiplicacionResponse
     {
         public double Producto { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(Producto)}: {Producto}";
+        }
     }
 }

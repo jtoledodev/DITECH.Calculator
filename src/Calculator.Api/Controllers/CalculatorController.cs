@@ -17,6 +17,7 @@ namespace Calculator.Api.Controllers
     public class CalculatorController : ControllerBase
     {
         private readonly ICalculatorService _calculatorService;
+        private const string IdHeader = "X-Evi-Tracking-Id";
 
         public CalculatorController(ICalculatorService calculatorService)
         {
@@ -37,7 +38,7 @@ namespace Calculator.Api.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            r.IdSeguimiento = Request.Headers["X-­Evi-­Tracking-­Id"] == StringValues.Empty ? string.Empty : Request.Headers["X-­Evi-­Tracking-­Id"].FirstOrDefault();
+            r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
             return Ok(await _calculatorService.Sumar(r));
         }
@@ -49,7 +50,7 @@ namespace Calculator.Api.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            r.IdSeguimiento = Request.Headers["X-­Evi-­Tracking-­Id"] == StringValues.Empty ? string.Empty : Request.Headers["X-­Evi-­Tracking-­Id"].FirstOrDefault();
+            r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
             return Ok(await _calculatorService.Restar(r));
         }
@@ -61,7 +62,7 @@ namespace Calculator.Api.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            r.IdSeguimiento = Request.Headers["X-­Evi-­Tracking-­Id"] == StringValues.Empty ? string.Empty : Request.Headers["X-­Evi-­Tracking-­Id"].FirstOrDefault();
+            r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
             return Ok(await _calculatorService.Multiplicar(r));
         }
@@ -73,7 +74,7 @@ namespace Calculator.Api.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            r.IdSeguimiento = Request.Headers["X-­Evi-­Tracking-­Id"] == StringValues.Empty ? string.Empty : Request.Headers["X-­Evi-­Tracking-­Id"].FirstOrDefault();
+            r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
             return Ok(await _calculatorService.Dividir(r));
         }
@@ -85,7 +86,7 @@ namespace Calculator.Api.Controllers
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            r.IdSeguimiento = Request.Headers["X-­Evi-­Tracking-­Id"] == StringValues.Empty ? string.Empty : Request.Headers["X-­Evi-­Tracking-­Id"].FirstOrDefault();
+            r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
             return Ok(await _calculatorService.CalcularRaizCuadrada(r));
         }

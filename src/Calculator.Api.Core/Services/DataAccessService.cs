@@ -13,12 +13,12 @@ namespace Calculator.Api.Core.Services
     {
         public async Task GuardarRegistroDiario(RegistroDiario r)
         {
-            throw new NotImplementedException();
+            await Task.FromResult(0);
         }
 
         public async Task<ConsultaDiarioResponse> CosultarDiario(ConsultaDiarioRequest r)
         {
-            throw new NotImplementedException();
+            return await Task.FromResult(new ConsultaDiarioResponse());
         }
     }
 }

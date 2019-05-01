@@ -10,7 +10,7 @@ namespace Calculator.CConsole
 {
     class Program
     {
-        private const string ApiUrl = "http://localhost:28810/api";
+        private const string ApiUrl = "http://localhost:28810/api/";
         private static IServiceProvider _serviceProvider;
 
         static async Task Main(string[] args)
