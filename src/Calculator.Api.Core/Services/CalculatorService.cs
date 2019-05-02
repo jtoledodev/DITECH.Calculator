@@ -24,7 +24,7 @@ namespace Calculator.Api.Core.Services
             _journalService = journalService;
         }
         /// <summary>
-        /// 
+        /// Metodo que realiza suma 
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -37,7 +37,7 @@ namespace Calculator.Api.Core.Services
             return new SumaResponse {Suma = result};
         }
         /// <summary>
-        /// 
+        /// Metodo que realiza la resta 
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -50,7 +50,7 @@ namespace Calculator.Api.Core.Services
             return new RestaResponse { Diferencia = result };
         }
         /// <summary>
-        /// 
+        /// Metodo que realiza la Multiplicación 
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -63,7 +63,7 @@ namespace Calculator.Api.Core.Services
             return new MultiplicacionResponse { Producto = result };
         }
         /// <summary>
-        /// 
+        /// Metodo que realiza la División 
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -76,7 +76,7 @@ namespace Calculator.Api.Core.Services
             return new DivisionResponse { Cociente = result.Key, Resto = result.Value };
         }
         /// <summary>
-        /// 
+        /// Metodo que calcula la raiz cuadrada
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -89,7 +89,7 @@ namespace Calculator.Api.Core.Services
             return new RaizCuadradaResponse {Cuadrado = result};
         }
         /// <summary>
-        /// 
+        /// Metodo para guardar el diario de las operaciones
         /// </summary>
         /// <param name="r"></param>
         /// <param name="result"></param>

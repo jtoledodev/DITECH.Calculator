@@ -41,7 +41,7 @@ namespace Calculator.Api.Controllers
             return Ok(await Task.FromResult("Calculator API Status Ok!"));
         }
         /// <summary>
-        /// 
+        /// Servicio de suma
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -59,7 +59,7 @@ namespace Calculator.Api.Controllers
             return Ok(response);
         }
         /// <summary>
-        /// 
+        /// Servicio de resta
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -77,7 +77,7 @@ namespace Calculator.Api.Controllers
             return Ok(response);
         }
         /// <summary>
-        /// 
+        /// servicio de multiplicación
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -95,14 +95,14 @@ namespace Calculator.Api.Controllers
             return Ok(response);
         }
         /// <summary>
-        /// 
+        /// Servicio de division
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
         [HttpPost("Div")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<DivisionResponse>> MultiplicarAsync([FromBody] DivisionRequest r)
+        public async Task<ActionResult<DivisionResponse>> DividirAsync([FromBody] DivisionRequest r)
         {
             r.IdSeguimiento = Request.Headers[IdHeader] == StringValues.Empty ? string.Empty : Request.Headers[IdHeader].ToString();
 
@@ -113,7 +113,7 @@ namespace Calculator.Api.Controllers
             return Ok(response);
         }
         /// <summary>
-        /// 
+        /// Servicio de raiz cuadrada
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>

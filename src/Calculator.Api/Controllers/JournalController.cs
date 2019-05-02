@@ -39,7 +39,7 @@ namespace Calculator.Api.Controllers
             return Ok(await Task.FromResult("Journal API Status Ok!"));
         }
         /// <summary>
-        /// 
+        /// Servicio de consulta operaciones diarias
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>

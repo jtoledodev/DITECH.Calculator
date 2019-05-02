@@ -28,7 +28,7 @@ namespace Calculator.Api.Core.Services
             _diarioCollectionName = _config.GetSection("AppSettings").GetSection("DiarioCollectionName").Value;
         }
         /// <summary>
-        /// 
+        /// Metodo para guardar las operaciones hechas
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -49,7 +49,7 @@ namespace Calculator.Api.Core.Services
             });
         }
         /// <summary>
-        /// 
+        /// Metodo de consulta de las operaciones diarias
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>

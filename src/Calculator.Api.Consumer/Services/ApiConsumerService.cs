@@ -31,7 +31,7 @@ namespace Calculator.Api.Consumer.Services
         }
 
         /// <summary>
-        /// Metodo de llamado al servicio de suma de la calculadora 
+        /// Implementación de llamado al servicio de suma de la calculadora 
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -49,7 +49,7 @@ namespace Calculator.Api.Consumer.Services
             return await client.PostAsync<SumaResponse>(request);
         }
         /// <summary>
-        /// Metodo de llamado al servicio de resta de la calculadora 
+        /// Implementación de llamado al servicio de resta de la calculadora 
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -67,7 +67,7 @@ namespace Calculator.Api.Consumer.Services
             return await client.PostAsync<RestaResponse>(request);
         }
         /// <summary>
-        /// Metodo de llamado al servicio de multiplicar de la calculadora 
+        /// Implementación de llamado al servicio de multiplicar de la calculadora 
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -85,7 +85,7 @@ namespace Calculator.Api.Consumer.Services
             return await client.PostAsync<MultiplicacionResponse>(request);
         }
         /// <summary>
-        /// Metodo de llamado al servicio de dividir de la calculadora 
+        /// Implementación de llamado al servicio de dividir de la calculadora 
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -103,7 +103,7 @@ namespace Calculator.Api.Consumer.Services
             return await client.PostAsync<DivisionResponse>(request);
         }
         /// <summary>
-        /// Metodo de llamado al servicio de raiz cuadrada de la calculadora 
+        /// Implementación de llamado al servicio de raiz cuadrada de la calculadora 
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
@@ -121,7 +121,7 @@ namespace Calculator.Api.Consumer.Services
             return await client.PostAsync<RaizCuadradaResponse>(request);
         }
         /// <summary>
-        /// Metodo de llamado al servicio de consulta de operaciones diarias
+        /// Implementación de llamado al servicio de consulta de operaciones diarias
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
